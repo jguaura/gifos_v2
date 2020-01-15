@@ -1,0 +1,94 @@
+.container {
+  margin: auto;
+  width: 85vw;
+  //   background-color: red;
+  //   opacity: 0.4;
+}
+
+.section {
+  width: 100%;
+  padding: 10px 15px;
+}
+
+.gradient_header {
+  background-image: $gradient_light;
+  box-shadow: $shadow_outer;
+  padding: 5px 10px;
+  color: #fff;
+}
+
+.btn {
+  padding: 8px 16px;
+  outline: none;
+  border: none;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-none {
+  display: none;
+}
+
+.divider {
+  width: 100%;
+  margin: 3rem 0 2rem 0;
+  padding: 8px 15px;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  box-shadow: $shadow_inner__dividers;
+}
+
+.suggestions_card {
+  width: 23%;
+
+  .flexer {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: $shadow_inner__light;
+  }
+
+  .card_img {
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 15px;
+    min-height: 220px;
+    width: 100%;
+    // background: url("../../assets/takamura.jpg") center no-repeat;
+    background-size: cover;
+    box-shadow: $shadow_inner__light;
+
+    button {
+      background-color: $baby_blue;
+      color: #fff;
+      border: 1px solid #4c2f99;
+      box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
+    }
+  }
+}
+
+.trends_card {
+  width: 23%;
+  margin-bottom: 2rem;
+
+  .trends_card__img {
+    display: flex;
+    align-items: flex-end;
+    min-height: 260px;
+    width: 100%;
+    background: url("../../assets/takamura.jpg") center no-repeat;
+    background-size: cover;
+    box-shadow: $shadow_inner__light;
+
+    .gradient_header {
+      display: none;
+      width: 100%;
+      transition: all 0.4s ease;
+    }
+
+    &:hover .gradient_header {
+      display: block;
+    }
+  }
+}
