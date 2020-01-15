@@ -20,6 +20,10 @@ header {
   font-size: 12px;
 }
 
+.inner_container {
+  padding: 10px 15px;
+}
+
 .branding {
   margin: 2rem 0 2rem 0;
   padding: 10px 15px;
@@ -27,17 +31,46 @@ header {
   justify-content: space-between;
 
   .branding_btns {
+    width: 30%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    button {
+    // .theme_btn {
+    //   display: flex;
+    //   align-items: center;
+    //   position: relative;
+
+    //   span {
+    //     margin-left: .5rem;
+    //   }
+    // }
+
+    .theme_btn {
+      background: #F0F0F0;
+      border: 1px solid #808080;
+      box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+        &:last-child {
+          margin-top: 1rem;
+        }
+    }
+
+    .branding_btn {
       background-color: $pale_pink;
       box-shadow: $shadow_inner__pink;
       border: $border;
 
       &:last-child {
         margin-left: 2rem;
+      }
+    }
+
+    .mis_gifos__btn {
+      color: $main;
+      text-decoration: none;
+
+      span {
+        text-decoration: underline;
       }
     }
   }
@@ -57,7 +90,7 @@ header {
     align-items: center;
 
     .search_input {
-      width: 83%;
+      width: 90%;
       input {
         border: 1px solid #979797;
         box-shadow: $shadow_inner__input;
@@ -70,10 +103,15 @@ header {
 
     .search_btn {
       button {
+        display: flex;
         height: 40px;
         color: #b4b4b4;
         border: 1px solid #808080;
         box-shadow: $shadow_inner__btn;
+
+        img {
+          margin-right: .5rem;
+        }
       }
     }
   }
@@ -86,7 +124,7 @@ header {
     background-color: $grey;
 
     .after_btns {
-      width: 83%;
+      width: 90%;
 
       .after_btn {
         margin-top: 1rem;
@@ -122,4 +160,40 @@ header {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.search_results {
+  display: none;
+
+  .results_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+.theme {
+  position: relative;
+}
+
+.theme_dropdown {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  padding: 15px 15px;
+  width: 79%;
+  background-color: $grey;
+  box-shadow: $shadow_inner__light;
+
+  .theme_btn {
+    padding: 5px 5px;
+    &:hover {
+      background-color: #FFF4FD !important;
+      cursor: pointer;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
 }

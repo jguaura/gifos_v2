@@ -18,11 +18,20 @@
       <!-- Branding -->
       <section class="section branding">
         <div class="branding_logo">
-          <img src="./assets/gifOF_logo.png" alt="" srcset="" />
+          <a href="">
+            <img src="./assets/gifOF_logo.png" alt="" srcset="" />
+          </a>
         </div>
         <div class="branding_btns">
-          <button class="btn">Crear gifos</button>
-          <button class="btn">Elegir tema</button>
+          <button class="btn branding_btn">Crear gifos</button>
+          <div class="btn theme">
+          <button class="btn branding_btn" id="theme_btn">Elegir tema <span><img src="./assets/dropdown.svg" alt=""></span></button> </button>
+          <div class="theme_dropdown" id="theme_dropdown">
+            <button class="theme_btn">Sailor Day</button>
+            <button class="theme_btn">Sailor Night</button>
+          </div>
+          </div>
+          <a href="#" class="mis_gifos__btn"><span>M</span>is Guifos</a>
         </div>
       </section>
       <!-- Search -->
@@ -35,7 +44,7 @@
             <input type="text" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…" id="search_input" />
           </div>
           <div class="search_btn">
-            <button class="btn"><img src="./assets/lupa_inactive.svg" alt="" srcset="">Buscar</button>
+            <button class="btn"  id="search_btn"><img src="./assets/lupa_inactive.svg" alt="" id="lens">Buscar</button>
           </div>
         </div>
         <div class="search_container__after" id="search_container__after">
@@ -47,6 +56,7 @@
         </div>
       </section>
       <!-- Divider -->
+      <div class="inner_container" id="inner_container">
       <section class="section">
         <div class="divider">
           <span>Hoy te sugerimos:</span>
@@ -54,56 +64,7 @@
       </section>
       <!-- Suggestions -->
       <section class="section suggestions">
-        <div class="suggestions_container" id="suggestions_container">
-          <!-- card -->
-          <!-- <div class="suggestions_card">
-            <div class="gradient_header flexer">
-              <span>#ElRosalio</span>
-              <img src="./assets/button close.svg" alt="" srcset="" />
-            </div>
-            <div class="card_img">
-              <div class="card_btns">
-                <button class="btn">LOREMS</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="suggestions_card">
-            <div class="gradient_header flexer">
-              <span>#ElRosalio</span>
-              <img src="./assets/button close.svg" alt="" srcset="" />
-            </div>
-            <div class="card_img">
-              <div class="card_btns">
-                <button class="btn">LOREMS</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="suggestions_card">
-            <div class="gradient_header flexer">
-              <span>#ElRosalio</span>
-              <img src="./assets/button close.svg" alt="" srcset="" />
-            </div>
-            <div class="card_img">
-              <div class="card_btns">
-                <button class="btn">LOREMS</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="suggestions_card">
-            <div class="gradient_header flexer">
-              <span>#ElRosalio</span>
-              <img src="./assets/button close.svg" alt="" srcset="" />
-            </div>
-            <div class="card_img">
-              <div class="card_btns">
-                <button class="btn">LOREMS</button>
-              </div>
-            </div>
-          </div> -->
-        </div>
+        <div class="suggestions_container" id="suggestions_container"></div>
       </section>
       <!-- Divider -->
       <section class="section">
@@ -112,40 +73,15 @@
         </div>
       </section>
       <!-- Trends -->
-      <div class="section trends" id="trends_container">
-        <!-- card -->
-        <div class="trends_card">
-          <div class="trends_card__img">
-            <div class="gradient_header">
-              <span>#lorem #lorem #lorem #lorem</span>
-            </div>
-          </div>
-        </div>
-        <!-- card -->
-        <div class="trends_card">
-          <div class="trends_card__img">
-            <div class="gradient_header">
-              <span>#lorem #lorem #lorem #lorem</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card -->
-        <div class="trends_card">
-          <div class="trends_card__img">
-            <div class="gradient_header">
-              <span>#lorem #lorem #lorem #lorem</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card -->
-        <div class="trends_card">
-          <div class="trends_card__img">
-            <div class="gradient_header">
-              <span>#lorem #lorem #lorem #lorem</span>
-            </div>
-          </div>
-        </div>
+      <div class="section trends" id="trends_container"></div>
+    </div>
+    <!-- Search Results  -->
+    <section class="section search_results" id="search_results">
+      <div class="divider">Resultados de busqueda para:
+        <span id="results_text"> </span>
       </div>
+      <div class="results_container" id="results_container"></div>
+    </section>
     </div>
     <script src="./scripts/app.js"></script>
   </body>

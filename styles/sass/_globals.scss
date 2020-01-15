@@ -21,14 +21,24 @@
   padding: 8px 16px;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 .d-flex {
   display: flex !important;
 }
 
+.d-block {
+  display: block !important;
+}
+
 .d-none {
   display: none;
+}
+
+.b-pink {
+  background-color: $pale_pink;
+  color: $main !important;
 }
 
 .divider {
@@ -91,4 +101,11 @@
       display: block;
     }
   }
+}
+
+#results_text {
+  margin-left: .5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $main;
 }
