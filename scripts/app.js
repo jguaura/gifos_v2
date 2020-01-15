@@ -49,7 +49,7 @@ const suggestionsCardTemplate = gif =>
             </div>
           </div>
    `;
-
+//?
 const trendsCardTemplate = gif =>
   `
     <div class="trends_card">
