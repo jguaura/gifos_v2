@@ -63,4 +63,4 @@ const trendsCardTemplate = gif =>
         </div>
    `;
 
-console.log('hello world');
+console.log('hello worl');
