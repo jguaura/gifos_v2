@@ -1,59 +1,67 @@
-//! API 
+//! API
 const BASE_URL = "https://api.giphy.com/v1/gifs/";
 const API_KEY = "9U7DlV9VJp8CXxdm3HO6rSyXJwWkKyO8";
 
 //? DOM Containers
-const innerContainer = document.getElementById('inner_container');
+const innerContainer = document.getElementById("inner_container");
+const searchContainer = document.getElementById("search_container");
 const searchAfterContainer = document.getElementById("search_container__after");
 const suggestionsContainer = document.getElementById("suggestions_container");
 const trendsContainer = document.getElementById("trends_container");
-const searchResultsContainer = document.getElementById('results_container')
-const searchResultsOuter = document.getElementById('search_results')
+const searchResultsContainer = document.getElementById("results_container");
+const searchResultsOuter = document.getElementById("search_results");
 
 //? DOM Elements
 const searchInput = document.getElementById("search_input");
-const searchbtn = document.getElementById('search_btn')
-const  lens  = document.getElementById('lens')
-const lensInactive = './assets/lupa_inactive.svg'
-const lensActive = './assets/lupa.svg'
-const themeBtn = document.getElementById('theme_btn')
-const themeDropdown = document.getElementById('theme_dropdown')
-const results_text = document.getElementById('results_text')
+const searchbtn = document.getElementById("search_btn");
+const lens = document.getElementById("lens");
+const lensInactive = "./assets/lupa_inactive.svg";
+const lensActive = "./assets/lupa.svg";
+const themeBtn = document.getElementById("theme_btn");
+const themeDropdown = document.getElementById("theme_dropdown");
+const results_text = document.getElementById("results_text");
+
+searchContainer.classList.add("d-none");
+innerContainer.classList.add("d-none");
+searchAfterContainer.classList.add("d-none");
 
 //? globals
 var query;
 var offset = Math.floor(Math.random() * (0 - 100)) + 100;
-console.log(lens)
+console.log(lens);
 
 searchInput.addEventListener("click", e => {
   searchAfterContainer.classList.toggle("d-flex");
-  searchbtn.classList.toggle('b-pink')
-  let imgSrc = lens.getAttribute('src');
-  imgSrc === "./assets/lupa_inactive.svg" ? lens.setAttribute("src", lensActive) : lens.setAttribute("src", lensInactive)
-
+  searchbtn.classList.toggle("b-pink");
+  let imgSrc = lens.getAttribute("src");
+  imgSrc === "./assets/lupa_inactive.svg"
+    ? lens.setAttribute("src", lensActive)
+    : lens.setAttribute("src", lensInactive);
 });
 
 suggestionsContainer.addEventListener("click", e => {
-  if(e.target.classList.contains("btn")) {
-    query = e.target.dataset.title
-    search()
+  if (e.target.classList.contains("btn")) {
+    query = e.target.dataset.title;
+    search();
   }
-})
+});
 
-searchInput.addEventListener('input', e => {
+searchInput.addEventListener("input", e => {
   query = e.target.value;
   setTimeout(() => {
-    search()
-  }, 500)
+    search();
+  }, 700);
   // search()
-})
+});
 
-themeBtn.addEventListener('click', () => {
-  themeDropdown.classList.toggle('d-flex')
-})
+themeBtn.addEventListener("click", () => {
+  themeDropdown.classList.toggle("d-flex");
+});
 
 const getSuggestions = () => {
-  fetch(`${BASE_URL}search?api_key=${API_KEY}&q=${query}&offset=${offset}&limit=4`)
+  fetch(
+    `${BASE_URL}search?api_key=${API_KEY}&q=${query}&offset=${offset}&limit=4`
+  )
     .then(response => response.json())
     .then(data => {
       suggestionsContainer.innerHTML = "";
@@ -80,18 +88,20 @@ const getTrends = () => {
 getTrends();
 
 const search = () => {
-  fetch(`${BASE_URL}search?api_key=${API_KEY}&q="${query}"&offset=${offset}&limit=12`)
-  .then(response => response.json())
-  .then(data => {
-    innerContainer.innerHTML = "";
-    searchResultsContainer.innerHTML = '';
-    searchResultsOuter.classList.add("d-block")
-    results_text.innerHTML = ` ${query}`
-    data.data.map(gif => {
-      searchResultsContainer.innerHTML += trendsCardTemplate(gif)
-    })
-  })
-}
+  fetch(
+    `${BASE_URL}search?api_key=${API_KEY}&q="${query}"&offset=${offset}&limit=12`
+  )
+    .then(response => response.json())
+    .then(data => {
+      innerContainer.innerHTML = "";
+      searchResultsContainer.innerHTML = "";
+      searchResultsOuter.classList.add("d-block");
+      results_text.innerHTML = ` ${query}`;
+      data.data.map(gif => {
+        searchResultsContainer.innerHTML += trendsCardTemplate(gif);
+      });
+    });
+};
 
 const suggestionsCardTemplate = gif =>
   `
@@ -121,4 +131,3 @@ const trendsCardTemplate = gif =>
           </div>
         </div>
    `;
-
