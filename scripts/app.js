@@ -13,6 +13,7 @@ const trendsContainer = document.getElementById("trends_container");
 const searchResultsContainer = document.getElementById("results_container");
 const searchResultsOuter = document.getElementById("search_results");
 const misGifosSection = document.getElementById("mis_gifos");
+const navBtnsContainer = document.getElementById('branding_btns')
 
 //? DOM Elements
 const searchInput = document.getElementById("search_input");
@@ -32,40 +33,25 @@ const misGifosBtn = document.getElementById("mis_gifos__btn");
 var query;
 var offset = Math.floor(Math.random() * (0 - 100)) + 100;
 console.log(lens);
-mainContainer.innerHTML = "";
-// misGifosBtn.addEventListener("click", () => {
-//   mainContainer.innerHTML = "";
-//   mainContainer.innerHTML += `<h1>Hello World</h1>`;
-//   misGifosSection.classList.add("d-block");
+
+// suggestionsContainer.addEventListener("click", e => {
+//   if (e.target.classList.contains("btn")) {
+//     query = e.target.dataset.title;
+//     search();
+//   }
 // });
 
-searchInput.addEventListener("click", e => {
-  searchAfterContainer.classList.toggle("d-flex");
-  searchbtn.classList.toggle("b-pink");
-  let imgSrc = lens.getAttribute("src");
-  imgSrc === "./assets/lupa_inactive.svg"
-    ? lens.setAttribute("src", lensActive)
-    : lens.setAttribute("src", lensInactive);
-});
+// searchInput.addEventListener("input", e => {
+//   query = e.target.value;
+//   setTimeout(() => {
+//     search();
+//   }, 400);
+//   // search()
+// });
 
-suggestionsContainer.addEventListener("click", e => {
-  if (e.target.classList.contains("btn")) {
-    query = e.target.dataset.title;
-    search();
-  }
-});
-
-searchInput.addEventListener("input", e => {
-  query = e.target.value;
-  setTimeout(() => {
-    search();
-  }, 400);
-  // search()
-});
-
-themeBtn.addEventListener("click", () => {
-  themeDropdown.classList.toggle("d-flex");
-});
+// themeBtn.addEventListener("click", () => {
+//   themeDropdown.classList.toggle("d-flex");
+// });
 
 const getSuggestions = () => {
   fetch(
@@ -102,6 +88,7 @@ const search = () => {
   )
     .then(response => response.json())
     .then(data => {
+      !query ? window.location.reload() : query
       innerContainer.innerHTML = "";
       searchResultsContainer.innerHTML = "";
       searchResultsOuter.classList.add("d-block");
@@ -126,13 +113,6 @@ searchInput.addEventListener("click", e => {
 
 });
 
-suggestionsContainer.addEventListener("click", e => {
-  if(e.target.classList.contains("btn")) {
-    query = e.target.dataset.title
-    search()
-  }
-})
-
 searchInput.addEventListener('input', e => {
   query = e.target.value;
   setTimeout(() => {
@@ -140,6 +120,19 @@ searchInput.addEventListener('input', e => {
   }, 500)
   // search()
 })
+
+suggestionsContainer.addEventListener("click", e => {
+  if(e.target.classList.contains("btn")) {
+    query = e.target.dataset.title
+    search()
+  }
+})
+
+misGifosBtn.addEventListener("click", () => {
+  mainContainer.innerHTML = "";
+  navBtnsContainer.innerHTML = "";
+  misGifosSection.classList.add("d-block");
+});
 
 themeBtn.addEventListener('click', () => {
   themeDropdown.classList.toggle('d-flex')
