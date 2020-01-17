@@ -3,6 +3,8 @@ const BASE_URL = "https://api.giphy.com/v1/gifs/";
 const API_KEY = "9U7DlV9VJp8CXxdm3HO6rSyXJwWkKyO8";
 
 //? DOM Containers
+const navContainer = document.getElementById("nav");
+const mainContainer = document.getElementById("main");
 const innerContainer = document.getElementById("inner_container");
 const searchContainer = document.getElementById("search_container");
 const searchAfterContainer = document.getElementById("search_container__after");
@@ -10,6 +12,7 @@ const suggestionsContainer = document.getElementById("suggestions_container");
 const trendsContainer = document.getElementById("trends_container");
 const searchResultsContainer = document.getElementById("results_container");
 const searchResultsOuter = document.getElementById("search_results");
+const misGifosSection = document.getElementById("mis_gifos");
 
 //? DOM Elements
 const searchInput = document.getElementById("search_input");
@@ -20,15 +23,21 @@ const lensActive = "./assets/lupa.svg";
 const themeBtn = document.getElementById("theme_btn");
 const themeDropdown = document.getElementById("theme_dropdown");
 const results_text = document.getElementById("results_text");
-
-searchContainer.classList.add("d-none");
-innerContainer.classList.add("d-none");
-searchAfterContainer.classList.add("d-none");
+const misGifosBtn = document.getElementById("mis_gifos__btn");
+// searchContainer.classList.add("d-none");
+// innerContainer.classList.add("d-none");
+// searchAfterContainer.classList.add("d-none");
 
 //? globals
 var query;
 var offset = Math.floor(Math.random() * (0 - 100)) + 100;
 console.log(lens);
+mainContainer.innerHTML = "";
+// misGifosBtn.addEventListener("click", () => {
+//   mainContainer.innerHTML = "";
+//   mainContainer.innerHTML += `<h1>Hello World</h1>`;
+//   misGifosSection.classList.add("d-block");
+// });
 
 searchInput.addEventListener("click", e => {
   searchAfterContainer.classList.toggle("d-flex");
@@ -50,7 +59,7 @@ searchInput.addEventListener("input", e => {
   query = e.target.value;
   setTimeout(() => {
     search();
-  }, 700);
+  }, 400);
   // search()
 });
 
