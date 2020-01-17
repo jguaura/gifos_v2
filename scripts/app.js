@@ -14,6 +14,7 @@ const searchResultsContainer = document.getElementById("results_container");
 const searchResultsOuter = document.getElementById("search_results");
 const misGifosSection = document.getElementById("mis_gifos");
 const navBtnsContainer = document.getElementById('branding_btns')
+const popUpContainer = document.getElementById('popup_container')
 
 //? DOM Elements
 const searchInput = document.getElementById("search_input");
@@ -21,17 +22,20 @@ const searchbtn = document.getElementById("search_btn");
 const lens = document.getElementById("lens");
 const lensInactive = "./assets/lupa_inactive.svg";
 const lensActive = "./assets/lupa.svg";
+const crearGifosBtn = document.getElementById('crear_gifos__btn')
 const themeBtn = document.getElementById("theme_btn");
 const themeDropdown = document.getElementById("theme_dropdown");
 const results_text = document.getElementById("results_text");
 const misGifosBtn = document.getElementById("mis_gifos__btn");
+const popupBtnCancelar = document.getElementById('popup_btn__cancelar')
+const popupBtnComenzar = document.getElementById('popup_btn__comenzar')
 // searchContainer.classList.add("d-none");
 // innerContainer.classList.add("d-none");
 // searchAfterContainer.classList.add("d-none");
 
 //? globals
-var query;
-var offset = Math.floor(Math.random() * (0 - 100)) + 100;
+let query;
+let offset = Math.floor(Math.random() * (0 - 100)) + 100;
 console.log(lens);
 
 // suggestionsContainer.addEventListener("click", e => {
@@ -128,15 +132,32 @@ suggestionsContainer.addEventListener("click", e => {
   }
 })
 
-misGifosBtn.addEventListener("click", () => {
-  mainContainer.innerHTML = "";
-  navBtnsContainer.innerHTML = "";
-  misGifosSection.classList.add("d-block");
-});
+crearGifosBtn.addEventListener('click', () => {
+  navBtnsContainer.innerHTML = '';
+  mainContainer.innerHTML = '';
+  popUpContainer.classList.add('d-block')
+  misGifosSection.classList.add('d-block')
+
+})
 
 themeBtn.addEventListener('click', () => {
   themeDropdown.classList.toggle('d-flex')
 })
+
+misGifosBtn.addEventListener("click", () => {
+  mainContainer.innerHTML = "";
+  misGifosSection.classList.add("d-block");
+});
+
+popupBtnCancelar.addEventListener('click', () => {
+  popUpContainer.classList.toggle('d-block')
+  console.log('"segui"', "segui")
+})
+
+popupBtnComenzar.addEventListener('click', () => {
+  alert("howdie, comenzamos?")
+})
+
 
 //* ===========================================================================
 //*                            E V E N T S
