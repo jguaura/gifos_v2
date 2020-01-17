@@ -1,7 +1,7 @@
 .container {
   margin: auto;
   width: 85vw;
-  //   background-color: red;
+  background-color: red;
   //   opacity: 0.4;
 }
 
@@ -30,6 +30,10 @@
 
 .d-block {
   display: block !important;
+}
+
+.d-grid {
+  display: grid !important;
 }
 
 .d-none {
@@ -104,8 +108,12 @@
 }
 
 #results_text {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   font-size: 1.2rem;
   font-weight: 700;
   color: $main;
+}
+
+.popup_container {
+  width: 50vw;
 }

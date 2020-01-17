@@ -25,29 +25,61 @@
         de visitas: 12.765.803</span
       >
     </header>
-
-    <div class="container">
-      <!-- Branding -->
-      <section class="section branding">
-        <div class="branding_logo">
-          <a href="">
-            <img src="./assets/gifOF_logo.png" alt="" srcset="" />
-          </a>
-        </div>
-        <div class="branding_btns">
-          <button class="btn branding_btn">Crear gifos</button>
-          <div class="btn theme">
-          <button class="btn branding_btn" id="theme_btn">Elegir tema <span><img src="./assets/dropdown.svg" alt=""></span></button> </button>
+    <div class="container" id="nav">
+    <section class="section branding">
+      <div class="branding_logo">
+        <a href="">
+          <img src="./assets/gifOF_logo.png" alt="" srcset="" />
+        </a>
+      </div>
+      <div class="branding_btns">
+        <button class="btn branding_btn">Crear gifos</button>
+        <div class="btn theme">
+          <button class="btn branding_btn" id="theme_btn">Elegir tema <span><img src="./assets/dropdown.svg"
+                alt=""></span></button> </button>
           <div class="theme_dropdown" id="theme_dropdown">
             <button class="theme_btn">Sailor Day</button>
             <button class="theme_btn">Sailor Night</button>
           </div>
-          </div>
-          <a href="#" class="mis_gifos__btn"><span>M</span>is Guifos</a>
         </div>
-      </section>
+        <a href="#" class="mis_gifos__btn" id="mis_gifos__btn"><span>M</span>is Guifos</a>
+      </div>
+    </section>
+    </div>
+    <div class="container popup_container">
+        <div class="popup">
+          <div class="gradient_header">
+            <span>Crear gifos</span>
+          </div>
+          <div class="popup_inner">
+            <div class="popup_inner__title">
+              <div class="title_img"><img src="./assets/window img.png" alt="" srcset=""></div>
+              <div class="title_text"><h3>Aquí podrás crear tus propios guifos</h3></div>
+            </div>
+            <div class="popup_inner__description">
+              <p>Crear tu guifo es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu
+              guifo son:</p>
+            </div>
+            <div class="popup_inner__list">
+              <ul>
+                <li>1) Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</li>
+                <li>2) Capturar tu momento guifo</li>
+                <li>3) Revisar el momento</li>
+                <li>4) Listo para subir y compartir!</li>
+                <li>¿Quieres comenzar a crear tu guifo ahora?</li>
+              </ul>
+            </div>
+            <div class="popup_inner__btns">
+              <button class="btn">CANCELAR</button>
+              <button class="btn">COMENZAR</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container" id="main">
+      <!-- Branding -->
       <!-- Search -->
-      <section class="section search">
+      <section class="section search" id="search_container">
         <div class="gradient_header">
           <span>Buscar</span>
         </div>
@@ -67,8 +99,9 @@
           </div>
         </div>
       </section>
-      <!-- Divider -->
+      <!-- Inner Container -->
       <div class="inner_container" id="inner_container">
+        <!-- Divider -->
       <section class="section">
         <div class="divider">
           <span>Hoy te sugerimos:</span>
@@ -95,6 +128,79 @@
       <div class="results_container" id="results_container"></div>
     </section>
     </div>
+    <!-- Mis gifos -->
+    <div class="container" >
+    <section class="section mis_gifos" id="mis_gifos">
+      <div class="divider">
+        <span>Mis guifos</span>
+      </div>
+      <div class="mis_guifos__container" id="mis_guifos__container">
+        <div class="trends_card">
+          <div class="trends_card__img" style="background: url('./assets/takamura.jpg') center / cover no-repeat;">
+            <div class="gradient_header">
+              <span>#Takamura</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trends_card">
+          <div class="trends_card__img" style="background: url('./assets/takamura.jpg') center / cover no-repeat;">
+            <div class="gradient_header">
+              <span>#Takamura</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trends_card">
+          <div class="trends_card__img" style="background: url('./assets/takamura.jpg') center / cover no-repeat;">
+            <div class="gradient_header">
+              <span>#Takamura</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trends_card">
+          <div class="trends_card__img" style="background: url('./assets/takamura.jpg') center / cover no-repeat;">
+            <div class="gradient_header">
+              <span>#Takamura</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trends_card">
+          <div class="trends_card__img" style="background: url('./assets/takamura.jpg') center / cover no-repeat;">
+            <div class="gradient_header">
+              <span>#Takamura</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trends_card">
+          <div class="trends_card__img" style="background: url('./assets/takamura.jpg') center / cover no-repeat;">
+            <div class="gradient_header">
+              <span>#Takamura</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trends_card">
+          <div class="trends_card__img" style="background: url('./assets/takamura.jpg') center / cover no-repeat;">
+            <div class="gradient_header">
+              <span>#Takamura</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trends_card">
+          <div class="trends_card__img" style="background: url('./assets/takamura.jpg') center / cover no-repeat;">
+            <div class="gradient_header">
+              <span>#Takamura</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
     <script src="./scripts/app.js"></script>
   </body>
 </html>

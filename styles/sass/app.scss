@@ -47,12 +47,12 @@ header {
     // }
 
     .theme_btn {
-      background: #F0F0F0;
+      background: #f0f0f0;
       border: 1px solid #808080;
-      box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-        &:last-child {
-          margin-top: 1rem;
-        }
+      box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+      &:last-child {
+        margin-top: 1rem;
+      }
     }
 
     .branding_btn {
@@ -110,7 +110,7 @@ header {
         box-shadow: $shadow_inner__btn;
 
         img {
-          margin-right: .5rem;
+          margin-right: 0.5rem;
         }
       }
     }
@@ -188,12 +188,85 @@ header {
   .theme_btn {
     padding: 5px 5px;
     &:hover {
-      background-color: #FFF4FD !important;
+      background-color: #fff4fd !important;
       cursor: pointer;
     }
 
     &:last-child {
       margin: 0;
+    }
+  }
+}
+.mis_gifos {
+  display: none;
+
+  .mis_guifos__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    .trends_card {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+.popup_container {
+  width: 50vw;
+  .gradient_header {
+    box-shadow: $shadow_inner__light;
+  }
+  .popup_inner {
+    padding: 25px 35px;
+    background-color: $grey;
+    box-shadow: $shadow_inner__light;
+
+    &__title {
+      display: flex;
+
+      .title_img {
+        margin-right: 16px;
+        height: 100%;
+      }
+    }
+
+    &__description {
+      padding-left: 46px;
+    }
+
+    &__list {
+      padding: 0 0 15px 46px;
+
+      ul {
+        list-style: none;
+        li {
+          margin-top: 0.5rem;
+
+          &:first-child {
+            margin-top: 1rem;
+          }
+
+          &:last-child {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+
+    &__btns {
+      display: flex;
+      justify-content: flex-end;
+
+      .btn {
+        background-color: $pale_pink;
+        border: $border;
+        box-shadow: $shadow_inner__pink;
+        &:hover {
+          background-color: #fff4fd;
+        }
+        &:first-child {
+          margin-right: 1rem;
+        }
+      }
     }
   }
 }
