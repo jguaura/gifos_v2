@@ -25,32 +25,7 @@ var query;
 var offset = Math.floor(Math.random() * (0 - 100)) + 100;
 console.log(lens)
 
-searchInput.addEventListener("click", e => {
-  searchAfterContainer.classList.toggle("d-flex");
-  searchbtn.classList.toggle('b-pink')
-  let imgSrc = lens.getAttribute('src');
-  imgSrc === "./assets/lupa_inactive.svg" ? lens.setAttribute("src", lensActive) : lens.setAttribute("src", lensInactive)
 
-});
-
-suggestionsContainer.addEventListener("click", e => {
-  if(e.target.classList.contains("btn")) {
-    query = e.target.dataset.title
-    search()
-  }
-})
-
-searchInput.addEventListener('input', e => {
-  query = e.target.value;
-  setTimeout(() => {
-    search()
-  }, 500)
-  // search()
-})
-
-themeBtn.addEventListener('click', () => {
-  themeDropdown.classList.toggle('d-flex')
-})
 
 const getSuggestions = () => {
   fetch(`${BASE_URL}search?api_key=${API_KEY}&q=${query}&offset=${offset}&limit=4`)
@@ -93,6 +68,47 @@ const search = () => {
   })
 }
 
+
+
+//* ===========================================================================
+//*                            E V E N T S
+//* ===========================================================================
+
+searchInput.addEventListener("click", e => {
+  searchAfterContainer.classList.toggle("d-flex");
+  searchbtn.classList.toggle('b-pink')
+  let imgSrc = lens.getAttribute('src');
+  imgSrc === "./assets/lupa_inactive.svg" ? lens.setAttribute("src", lensActive) : lens.setAttribute("src", lensInactive)
+
+});
+
+suggestionsContainer.addEventListener("click", e => {
+  if(e.target.classList.contains("btn")) {
+    query = e.target.dataset.title
+    search()
+  }
+})
+
+searchInput.addEventListener('input', e => {
+  query = e.target.value;
+  setTimeout(() => {
+    search()
+  }, 500)
+  // search()
+})
+
+themeBtn.addEventListener('click', () => {
+  themeDropdown.classList.toggle('d-flex')
+})
+
+//* ===========================================================================
+//*                            E V E N T S
+//* ===========================================================================
+
+//? ===========================================================================
+//?                          T E M P L A T E S
+//? ===========================================================================
+
 const suggestionsCardTemplate = gif =>
   `
 <div class="suggestions_card">
@@ -108,7 +124,8 @@ const suggestionsCardTemplate = gif =>
             </div>
           </div>
    `;
-//?testsss
+
+   
 const trendsCardTemplate = gif =>
   `
     <div class="trends_card">
@@ -121,4 +138,3 @@ const trendsCardTemplate = gif =>
           </div>
         </div>
    `;
-
