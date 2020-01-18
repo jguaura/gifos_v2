@@ -32,12 +32,12 @@ const misGifosBtn = document.getElementById("mis_gifos__btn");
 var query;
 var offset = Math.floor(Math.random() * (0 - 100)) + 100;
 console.log(lens);
-mainContainer.innerHTML = "";
-// misGifosBtn.addEventListener("click", () => {
-//   mainContainer.innerHTML = "";
-//   mainContainer.innerHTML += `<h1>Hello World</h1>`;
-//   misGifosSection.classList.add("d-block");
-// });
+
+misGifosBtn.addEventListener("click", () => {
+  mainContainer.innerHTML = "";
+  mainContainer.innerHTML += `<h1>Hello World</h1>`;
+  misGifosSection.classList.add("d-block");
+});
 
 searchInput.addEventListener("click", e => {
   searchAfterContainer.classList.toggle("d-flex");
