@@ -13,6 +13,8 @@ const trendsContainer = document.getElementById("trends_container");
 const searchResultsContainer = document.getElementById("results_container");
 const searchResultsOuter = document.getElementById("search_results");
 const misGifosSection = document.getElementById("mis_gifos");
+const navBtnsContainer = document.getElementById("branding_btns");
+const popUpContainer = document.getElementById("popup_container");
 
 //? DOM Elements
 const searchInput = document.getElementById("search_input");
@@ -20,52 +22,40 @@ const searchbtn = document.getElementById("search_btn");
 const lens = document.getElementById("lens");
 const lensInactive = "./assets/lupa_inactive.svg";
 const lensActive = "./assets/lupa.svg";
+const crearGifosBtn = document.getElementById("crear_gifos__btn");
 const themeBtn = document.getElementById("theme_btn");
 const themeDropdown = document.getElementById("theme_dropdown");
 const results_text = document.getElementById("results_text");
 const misGifosBtn = document.getElementById("mis_gifos__btn");
+const popupBtnCancelar = document.getElementById("popup_btn__cancelar");
+const popupBtnComenzar = document.getElementById("popup_btn__comenzar");
 // searchContainer.classList.add("d-none");
 // innerContainer.classList.add("d-none");
 // searchAfterContainer.classList.add("d-none");
 
 //? globals
-var query;
-var offset = Math.floor(Math.random() * (0 - 100)) + 100;
+let query;
+let offset = Math.floor(Math.random() * (0 - 100)) + 100;
 console.log(lens);
 
-misGifosBtn.addEventListener("click", () => {
-  mainContainer.innerHTML = "";
-  mainContainer.innerHTML += `<h1>Hello World</h1>`;
-  misGifosSection.classList.add("d-block");
-});
+// suggestionsContainer.addEventListener("click", e => {
+//   if (e.target.classList.contains("btn")) {
+//     query = e.target.dataset.title;
+//     search();
+//   }
+// });
 
-searchInput.addEventListener("click", e => {
-  searchAfterContainer.classList.toggle("d-flex");
-  searchbtn.classList.toggle("b-pink");
-  let imgSrc = lens.getAttribute("src");
-  imgSrc === "./assets/lupa_inactive.svg"
-    ? lens.setAttribute("src", lensActive)
-    : lens.setAttribute("src", lensInactive);
-});
+// searchInput.addEventListener("input", e => {
+//   query = e.target.value;
+//   setTimeout(() => {
+//     search();
+//   }, 400);
+//   // search()
+// });
 
-suggestionsContainer.addEventListener("click", e => {
-  if (e.target.classList.contains("btn")) {
-    query = e.target.dataset.title;
-    search();
-  }
-});
-
-searchInput.addEventListener("input", e => {
-  query = e.target.value;
-  setTimeout(() => {
-    search();
-  }, 400);
-  // search()
-});
-
-themeBtn.addEventListener("click", () => {
-  themeDropdown.classList.toggle("d-flex");
-});
+// themeBtn.addEventListener("click", () => {
+//   themeDropdown.classList.toggle("d-flex");
+// });
 
 const getSuggestions = () => {
   fetch(
@@ -102,6 +92,7 @@ const search = () => {
   )
     .then(response => response.json())
     .then(data => {
+      !query ? window.location.reload() : query;
       innerContainer.innerHTML = "";
       searchResultsContainer.innerHTML = "";
       searchResultsOuter.classList.add("d-block");
@@ -111,6 +102,67 @@ const search = () => {
       });
     });
 };
+
+//* ===========================================================================
+//*                            E V E N T S
+//* ===========================================================================
+
+searchInput.addEventListener("click", e => {
+  searchAfterContainer.classList.toggle("d-flex");
+  searchbtn.classList.toggle("b-pink");
+  let imgSrc = lens.getAttribute("src");
+  imgSrc === "./assets/lupa_inactive.svg"
+    ? lens.setAttribute("src", lensActive)
+    : lens.setAttribute("src", lensInactive);
+});
+
+searchInput.addEventListener("input", e => {
+  query = e.target.value;
+  setTimeout(() => {
+    search();
+  }, 500);
+  // search()
+});
+
+suggestionsContainer.addEventListener("click", e => {
+  if (e.target.classList.contains("btn")) {
+    query = e.target.dataset.title;
+    search();
+  }
+});
+
+crearGifosBtn.addEventListener("click", () => {
+  navBtnsContainer.innerHTML = "";
+  mainContainer.innerHTML = "";
+  popUpContainer.classList.add("d-block");
+  misGifosSection.classList.add("d-block");
+});
+
+themeBtn.addEventListener("click", () => {
+  themeDropdown.classList.toggle("d-flex");
+});
+
+misGifosBtn.addEventListener("click", () => {
+  mainContainer.innerHTML = "";
+  misGifosSection.classList.add("d-block");
+});
+
+popupBtnCancelar.addEventListener("click", () => {
+  popUpContainer.classList.toggle("d-block");
+  console.log('"segui"', "segui");
+});
+
+popupBtnComenzar.addEventListener("click", () => {
+  alert("howdie, comenzamos?");
+});
+
+//* ===========================================================================
+//*                            E V E N T S
+//* ===========================================================================
+
+//? ===========================================================================
+//?                          T E M P L A T E S
+//? ===========================================================================
 
 const suggestionsCardTemplate = gif =>
   `
@@ -127,7 +179,7 @@ const suggestionsCardTemplate = gif =>
             </div>
           </div>
    `;
-//?testsss
+
 const trendsCardTemplate = gif =>
   `
     <div class="trends_card">

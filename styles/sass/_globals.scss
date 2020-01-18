@@ -1,7 +1,7 @@
 .container {
   margin: auto;
   width: 85vw;
-  background-color: red;
+  // background-color: red;
   //   opacity: 0.4;
 }
 
@@ -15,6 +15,10 @@
   box-shadow: $shadow_outer;
   padding: 5px 10px;
   color: #fff;
+
+  span {
+    font-weight: 700;
+  }
 }
 
 .btn {

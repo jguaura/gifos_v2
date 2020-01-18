@@ -211,7 +211,9 @@ header {
   }
 }
 .popup_container {
-  width: 50vw;
+  width: 45vw;
+  margin: 6rem auto 4rem auto;
+  display: none;
   .gradient_header {
     box-shadow: $shadow_inner__light;
   }
