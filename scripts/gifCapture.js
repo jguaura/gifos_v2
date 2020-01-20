@@ -1,4 +1,39 @@
-var image = document.querySelector("img");
+const captureContainer = document.getElementById('capture_container')
+const captureTimer = document.getElementById('capture_timer')
+const image = document.getElementById('preview_canvas');
+
+captureContainer.addEventListener("click", e  => {
+  if(e.target.classList.contains('btn_camera') || e.target.classList.contains('btn_capture')) {
+    () => {
+      this.disabled = true;
+      captureCamera(function(camera) {
+        document.querySelector("h1").innerHTML =
+          "Waiting for Gif Recorder to start...";
+        recorder = RecordRTC(camera, {
+          type: "gif",
+          frameRate: 1,
+          quality: 10,
+          width: 360,
+          hidden: 240,
+          onGifRecordingStarted: function() {
+            document.querySelector("h1").innerHTML = "Gif recording started.";
+          },
+          onGifPreview: function(gifURL) {
+            image.src = gifURL;
+          }
+        });
+    
+        recorder.startRecording();
+    
+        // release camera on stopRecording
+        recorder.camera = camera;
+    
+        document.getElementById("btn-stop-recording").disabled = false;
+      });
+    };
+  }
+})
+
 
 function captureCamera(callback) {
   navigator.mediaDevices
@@ -23,35 +58,35 @@ function stopRecordingCallback() {
 
 var recorder; // globally accessible
 
-document.getElementById("btn-start-recording").onclick = function() {
-  this.disabled = true;
-  captureCamera(function(camera) {
-    document.querySelector("h1").innerHTML =
-      "Waiting for Gif Recorder to start...";
-    recorder = RecordRTC(camera, {
-      type: "gif",
-      frameRate: 1,
-      quality: 10,
-      width: 360,
-      hidden: 240,
-      onGifRecordingStarted: function() {
-        document.querySelector("h1").innerHTML = "Gif recording started.";
-      },
-      onGifPreview: function(gifURL) {
-        image.src = gifURL;
-      }
-    });
+// document.getElementById("btn-start-recording").onclick = function() {
+//   this.disabled = true;
+//   captureCamera(function(camera) {
+//     document.querySelector("h1").innerHTML =
+//       "Waiting for Gif Recorder to start...";
+//     recorder = RecordRTC(camera, {
+//       type: "gif",
+//       frameRate: 1,
+//       quality: 10,
+//       width: 360,
+//       hidden: 240,
+//       onGifRecordingStarted: function() {
+//         document.querySelector("h1").innerHTML = "Gif recording started.";
+//       },
+//       onGifPreview: function(gifURL) {
+//         image.src = gifURL;
+//       }
+//     });
 
-    recorder.startRecording();
+//     recorder.startRecording();
 
-    // release camera on stopRecording
-    recorder.camera = camera;
+//     // release camera on stopRecording
+//     recorder.camera = camera;
 
-    document.getElementById("btn-stop-recording").disabled = false;
-  });
-};
+//     document.getElementById("btn-stop-recording").disabled = false;
+//   });
+// };
 
-document.getElementById("btn-stop-recording").onclick = function() {
-  this.disabled = true;
-  recorder.stopRecording(stopRecordingCallback);
-};
+// document.getElementById("btn-stop-recording").onclick = function() {
+//   this.disabled = true;
+//   recorder.stopRecording(stopRecordingCallback);
+// };

@@ -16,6 +16,7 @@ const misGifosSection = document.getElementById("mis_gifos");
 const navBtnsContainer = document.getElementById("branding_btns");
 const popUpContainer = document.getElementById("popup_container");
 
+
 //? DOM Elements
 const searchInput = document.getElementById("search_input");
 const searchbtn = document.getElementById("search_btn");
@@ -37,7 +38,7 @@ const popupBtnComenzar = document.getElementById("popup_btn__comenzar");
 let query;
 let offset = Math.floor(Math.random() * (0 - 100)) + 100;
 console.log(lens);
-
+mainContainer.innerHTML = "";
 // suggestionsContainer.addEventListener("click", e => {
 //   if (e.target.classList.contains("btn")) {
 //     query = e.target.dataset.title;
@@ -155,6 +156,8 @@ popupBtnCancelar.addEventListener("click", () => {
 popupBtnComenzar.addEventListener("click", () => {
   alert("howdie, comenzamos?");
 });
+
+
 
 //* ===========================================================================
 //*                            E V E N T S

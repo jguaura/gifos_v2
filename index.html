@@ -62,11 +62,11 @@
             </div>
             <div class="popup_inner__list">
               <ul>
-                <li>1) Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</li>
-                <li>2) Capturar tu momento guifo</li>
-                <li>3) Revisar el momento</li>
-                <li>4) Listo para subir y compartir!</li>
-                <li>¿Quieres comenzar a crear tu guifo ahora?</li>
+                <li><b>1)</b> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</li>
+                <li><b>2)</b>  Capturar tu momento guifo</li>
+                <li><b>3)</b> Revisar el momento</li>
+                <li><b>4)</b> Listo para subir y compartir!</li>
+                <li> ¿Quieres comenzar a crear tu <strong><em>guifo</em></strong> ahora?</li>
               </ul>
             </div>
             <div class="popup_inner__btns">
@@ -200,8 +200,29 @@
         </div>
       </div>
     </section>
+    <div class="container capture_container" id="capture_container">
+      <div class="capture_inner__container">
+        <div class="gradient_header">
+          <span>Un Chequeo Antes de Empezar</span>
+          <img src="./assets/close.svg" alt="">
+        </div>
+        <div class="preview_container">
+          <img src="./assets/takamura.jpg" alt="" id="preview_canvas">
+        </div>
+        <div class="capture_footer">
+          <div class="capture_timer" id="capture_timer">
+            <span>DURAZNITO</span>
+          </div>
+          <div class="capture_btns">
+            <button class="btn btn_camera"><img src="./assets/camera.svg" alt=""></button>
+            <button class="btn btn_capture">Capturar</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>  
     <script src="./scripts/app.js"></script>
+    <script src="./scripts/gifCapture.js"></script>
   </body>
 </html>
