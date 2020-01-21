@@ -1,39 +1,10 @@
-const captureContainer = document.getElementById('capture_container')
-const captureTimer = document.getElementById('capture_timer')
-const image = document.getElementById('preview_canvas');
+const captureContainer = document.getElementById("capture_container");
+const captureTimer = document.getElementById("capture_timer");
+// const image = document.getElementById("preview_canvas");
+const startBtn = document.getElementById("capture_start");
+const stopBtn = document.getElementById("capture_stop");
 
-captureContainer.addEventListener("click", e  => {
-  if(e.target.classList.contains('btn_camera') || e.target.classList.contains('btn_capture')) {
-    () => {
-      this.disabled = true;
-      captureCamera(function(camera) {
-        document.querySelector("h1").innerHTML =
-          "Waiting for Gif Recorder to start...";
-        recorder = RecordRTC(camera, {
-          type: "gif",
-          frameRate: 1,
-          quality: 10,
-          width: 360,
-          hidden: 240,
-          onGifRecordingStarted: function() {
-            document.querySelector("h1").innerHTML = "Gif recording started.";
-          },
-          onGifPreview: function(gifURL) {
-            image.src = gifURL;
-          }
-        });
-    
-        recorder.startRecording();
-    
-        // release camera on stopRecording
-        recorder.camera = camera;
-    
-        document.getElementById("btn-stop-recording").disabled = false;
-      });
-    };
-  }
-})
-
+var image = document.querySelector("#preview_canvas");
 
 function captureCamera(callback) {
   navigator.mediaDevices
@@ -48,7 +19,7 @@ function captureCamera(callback) {
 }
 
 function stopRecordingCallback() {
-  document.querySelector("h1").innerHTML =
+  document.querySelector("#capture_timer").innerHTML =
     "Gif recording stopped: " + bytesToSize(recorder.getBlob().size);
   image.src = URL.createObjectURL(recorder.getBlob());
   recorder.camera.stop();
@@ -58,35 +29,36 @@ function stopRecordingCallback() {
 
 var recorder; // globally accessible
 
-// document.getElementById("btn-start-recording").onclick = function() {
-//   this.disabled = true;
-//   captureCamera(function(camera) {
-//     document.querySelector("h1").innerHTML =
-//       "Waiting for Gif Recorder to start...";
-//     recorder = RecordRTC(camera, {
-//       type: "gif",
-//       frameRate: 1,
-//       quality: 10,
-//       width: 360,
-//       hidden: 240,
-//       onGifRecordingStarted: function() {
-//         document.querySelector("h1").innerHTML = "Gif recording started.";
-//       },
-//       onGifPreview: function(gifURL) {
-//         image.src = gifURL;
-//       }
-//     });
+document.getElementById("capture_start").onclick = function() {
+  this.disabled = true;
+  captureCamera(function(camera) {
+    document.querySelector("#capture_timer").innerHTML =
+      "Waiting for Gif Recorder to start...";
+    recorder = RecordRTC(camera, {
+      type: "gif",
+      frameRate: 1,
+      quality: 10,
+      width: 360,
+      hidden: 240,
+      onGifRecordingStarted: function() {
+        document.querySelector("#capture_timer").innerHTML =
+          "Gif recording started.";
+      },
+      onGifPreview: function(gifURL) {
+        image.src = gifURL;
+      }
+    });
 
-//     recorder.startRecording();
+    recorder.startRecording();
 
-//     // release camera on stopRecording
-//     recorder.camera = camera;
+    // release camera on stopRecording
+    recorder.camera = camera;
 
-//     document.getElementById("btn-stop-recording").disabled = false;
-//   });
-// };
+    document.getElementById("capture_stop").disabled = false;
+  });
+};
 
-// document.getElementById("btn-stop-recording").onclick = function() {
-//   this.disabled = true;
-//   recorder.stopRecording(stopRecordingCallback);
-// };
+document.getElementById("capture_stop").onclick = function() {
+  this.disabled = true;
+  recorder.stopRecording(stopRecordingCallback);
+};

@@ -274,76 +274,89 @@ header {
 }
 
 .capture_container {
-
   padding-top: 4rem;
 
-.capture_inner__container {
-  width: 60%;
-  margin: auto;
-  // height: 40vh;
-  background-color: $grey;
-  padding: 0 0 10px 0;
-  box-shadow: $shadow_inner__light;
-
-  .gradient_header {
-    box-shadow: $shadow_inner__light;
-    display: flex;
-    justify-content: space-between;
-
-  }
-
-  .preview_container {
-    width: 97%;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
+  .capture_inner__container {
+    width: 60%;
     margin: auto;
-    margin: 15px auto;
-    box-shadow: $shadow_inner__input;
-    border: $border;
-    // background-image: url('../../assets/takamura.jpg');
-    // background-position: center;
-    // background-size: cover;
+    // height: 40vh;
+    background-color: $grey;
+    padding: 0 0 10px 0;
+    box-shadow: $shadow_inner__light;
 
-    img {
-      width: 100%;
-      padding:2px;
-      max-height: 40vh;
-      // border: $border;
+    .gradient_header {
+      box-shadow: $shadow_inner__light;
+      display: flex;
+      justify-content: space-between;
     }
-  }
-  .capture_footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 15px;
 
-  .capture_timer {
-    visibility: hidden;
-    background-color: #fff;
-    padding: 8px 15px;
-    border: 1px solid #979797;
-    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
-  }
-    
-  .capture_btns {
-    display: flex;
-    justify-content: flex-end;
-
-    .btn {
-      background-color: $pale_pink;
-      box-shadow: $shadow_inner__pink;
+    .preview_container {
+      width: 97%;
+      height: 40vh;
+      display: flex;
+      justify-content: center;
+      margin: auto;
+      margin: 15px auto;
+      box-shadow: $shadow_inner__input;
       border: $border;
+      // background-image: url('../../assets/takamura.jpg');
+      // background-position: center;
+      // background-size: cover;
+
+      img {
+        width: 100%;
+        padding: 2px;
+        max-height: 40vh;
+        // border: $border;
+      }
+    }
+    .capture_footer {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      padding: 8px 15px;
 
-      &:last-child {
-        padding: 10px 30px;
-        color: $main;
-        font-weight: 500;
+      .capture_timer {
+        visibility: visible;
+        background-color: #fff;
+        padding: 8px 15px;
+        border: 1px solid #979797;
+        box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+      }
+
+      .capture_btns {
+        display: flex;
+        justify-content: flex-end;
+
+        .start_btns {
+          display: flex;
+        }
+        .stop_btns {
+          display: flex;
+        }
+        .btn {
+          border: $border;
+          display: flex;
+          align-items: center;
+
+          &:last-child {
+            padding: 10px 35px;
+            font-weight: 500;
+          }
+        }
+
+        .btn_start {
+          background-color: $pale_pink;
+          box-shadow: $shadow_inner__pink;
+          color: $main;
+        }
+
+        .btn_stop {
+          background-color: $red;
+          box-shadow: $shadow_inner__red;
+          color: #fff;
+        }
       }
     }
   }
-}
-}
 }

@@ -380,27 +380,40 @@ header {
   padding: 8px 15px;
 }
 .capture_container .capture_inner__container .capture_footer .capture_timer {
-  visibility: hidden;
+  visibility: visible;
   background-color: #fff;
   padding: 8px 15px;
   border: 1px solid #979797;
-  box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+  box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
 }
 .capture_container .capture_inner__container .capture_footer .capture_btns {
   display: flex;
   justify-content: flex-end;
 }
+.capture_container .capture_inner__container .capture_footer .capture_btns .start_btns {
+  display: flex;
+}
+.capture_container .capture_inner__container .capture_footer .capture_btns .stop_btns {
+  display: flex;
+}
 .capture_container .capture_inner__container .capture_footer .capture_btns .btn {
-  background-color: #f7c9f3;
-  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   border: 1px solid #110038;
   display: flex;
   align-items: center;
 }
 .capture_container .capture_inner__container .capture_footer .capture_btns .btn:last-child {
-  padding: 10px 30px;
-  color: #110038;
+  padding: 10px 35px;
   font-weight: 500;
+}
+.capture_container .capture_inner__container .capture_footer .capture_btns .btn_start {
+  background-color: #f7c9f3;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  color: #110038;
+}
+.capture_container .capture_inner__container .capture_footer .capture_btns .btn_stop {
+  background-color: #ff6161;
+  box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
