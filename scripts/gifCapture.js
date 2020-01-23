@@ -30,7 +30,8 @@ function stopRecordingCallback() {
 var recorder; // globally accessible
 
 document.getElementById("capture_start").onclick = function() {
-  this.disabled = true;
+  // this.disabled = true;
+  startBtn.classList.add('d-none')
   captureCamera(function(camera) {
     document.querySelector("#capture_timer").innerHTML =
       "Waiting for Gif Recorder to start...";
