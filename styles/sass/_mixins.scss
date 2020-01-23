@@ -1,0 +1,22 @@
+@mixin flex_center_between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex_between_wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@mixin pink_btn {
+  background: $pale_pink;
+  border: $border;
+  box-shadow: $shadow_inner__pink;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #fff4fd;
+  }
+}

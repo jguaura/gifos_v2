@@ -174,12 +174,12 @@ header {
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 }
 .search .search_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 20px 20px;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   background-color: #e6e6e6;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .search .search_container .search_input {
   width: 90%;
@@ -395,6 +395,23 @@ header {
 }
 .capture_container .capture_inner__container .capture_footer .capture_btns .stop_btns {
   display: flex;
+}
+.capture_container .capture_inner__container .capture_footer .capture_btns .confirm_btns {
+  display: flex;
+}
+.capture_container .capture_inner__container .capture_footer .capture_btns .confirm_btns .btn {
+  padding: 10px 20px;
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  transition: background-color 0.3s ease;
+}
+.capture_container .capture_inner__container .capture_footer .capture_btns .confirm_btns .btn:hover {
+  background-color: #fff4fd;
+}
+.capture_container .capture_inner__container .capture_footer .capture_btns .confirm_btns .btn:last-child {
+  margin-left: 1.5rem;
+  padding: 8px 20px;
 }
 .capture_container .capture_inner__container .capture_footer .capture_btns .btn {
   border: 1px solid #110038;

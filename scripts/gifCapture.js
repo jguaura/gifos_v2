@@ -1,10 +1,15 @@
 const captureContainer = document.getElementById("capture_container");
+const confirmBtnsContainer = document.getElementById("confirm_btns__container");
 const captureTimer = document.getElementById("capture_timer");
 // const image = document.getElementById("preview_canvas");
 const startBtn = document.getElementById("capture_start");
 const stopBtn = document.getElementById("capture_stop");
+const repeatBtn = document.getElementById("capture_repeat");
 
 var image = document.querySelector("#preview_canvas");
+
+startBtn.classList.add("d-none");
+stopBtn.classList.add("d-none");
 
 function captureCamera(callback) {
   navigator.mediaDevices
@@ -29,9 +34,9 @@ function stopRecordingCallback() {
 
 var recorder; // globally accessible
 
-document.getElementById("capture_start").onclick = function() {
-  // this.disabled = true;
-  startBtn.classList.add('d-none')
+startBtn.onclick = function() {
+  startBtn.classList.add("d-none");
+  stopBtn.classList.remove("d-none");
   captureCamera(function(camera) {
     document.querySelector("#capture_timer").innerHTML =
       "Waiting for Gif Recorder to start...";
@@ -54,12 +59,16 @@ document.getElementById("capture_start").onclick = function() {
 
     // release camera on stopRecording
     recorder.camera = camera;
-
-    document.getElementById("capture_stop").disabled = false;
   });
 };
 
-document.getElementById("capture_stop").onclick = function() {
-  this.disabled = true;
+stopBtn.onclick = function() {
+  stopBtn.classList.add("d-none");
+  confirmBtnsContainer.classList.remove("d-none");
   recorder.stopRecording(stopRecordingCallback);
 };
+
+repeatBtn.addEventListener("click", e => {
+  confirmBtnsContainer.classList.add("d-none");
+  startBtn.classList.remove("d-none");
+});
