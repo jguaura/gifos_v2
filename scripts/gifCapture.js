@@ -1,4 +1,4 @@
-const captureContainer = document.getElementById("capture_container");
+// const captureContainer = document.getElementById("capture_container");
 const confirmBtnsContainer = document.getElementById("confirm_btns__container");
 const captureTimer = document.getElementById("capture_timer");
 // const image = document.getElementById("preview_canvas");
@@ -6,10 +6,10 @@ const startBtn = document.getElementById("capture_start");
 const stopBtn = document.getElementById("capture_stop");
 const repeatBtn = document.getElementById("capture_repeat");
 
-var image = document.querySelector("#preview_canvas");
+var image = document.querySelector("#preview_canvas");6
 
-startBtn.classList.add("d-none");
-stopBtn.classList.add("d-none");
+// startBtn.classList.add("d-none");
+// stopBtn.classList.add("d-none");
 
 function captureCamera(callback) {
   navigator.mediaDevices

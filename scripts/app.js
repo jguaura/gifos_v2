@@ -15,6 +15,8 @@ const searchResultsOuter = document.getElementById("search_results");
 const misGifosSection = document.getElementById("mis_gifos");
 const navBtnsContainer = document.getElementById("branding_btns");
 const popUpContainer = document.getElementById("popup_container");
+const captureContainer = document.getElementById("capture_container");
+
 
 
 //? DOM Elements
@@ -38,25 +40,14 @@ const popupBtnComenzar = document.getElementById("popup_btn__comenzar");
 let query;
 let offset = Math.floor(Math.random() * (0 - 100)) + 100;
 console.log(lens);
-mainContainer.innerHTML = "";
-// suggestionsContainer.addEventListener("click", e => {
-//   if (e.target.classList.contains("btn")) {
-//     query = e.target.dataset.title;
-//     search();
-//   }
-// });
+// mainContainer.innerHTML = "";
 
-// searchInput.addEventListener("input", e => {
-//   query = e.target.value;
-//   setTimeout(() => {
-//     search();
-//   }, 400);
-//   // search()
-// });
-
-// themeBtn.addEventListener("click", () => {
-//   themeDropdown.classList.toggle("d-flex");
-// });
+let state = {
+  renderSuggestions: true,
+  renderTrends: true,
+  renderCaptureGif: false,
+  renderMisGuifos: false
+}
 
 const getSuggestions = () => {
   fetch(
@@ -133,11 +124,15 @@ suggestionsContainer.addEventListener("click", e => {
 });
 
 crearGifosBtn.addEventListener("click", () => {
+  renderCrearGifos();
+});
+
+const renderCrearGifos = () => {
   navBtnsContainer.innerHTML = "";
   mainContainer.innerHTML = "";
   popUpContainer.classList.add("d-block");
   misGifosSection.classList.add("d-block");
-});
+}
 
 themeBtn.addEventListener("click", () => {
   themeDropdown.classList.toggle("d-flex");
@@ -150,11 +145,13 @@ misGifosBtn.addEventListener("click", () => {
 
 popupBtnCancelar.addEventListener("click", () => {
   popUpContainer.classList.toggle("d-block");
-  console.log('"segui"', "segui");
+  // console.log('"segui"', "segui");
 });
 
 popupBtnComenzar.addEventListener("click", () => {
-  alert("howdie, comenzamos?");
+  popUpContainer.classList.remove("d-block")
+  captureContainer.classList.remove("d-none")
+  misGifosSection.classList.remove('d-block')
 });
 
 
