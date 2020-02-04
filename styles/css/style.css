@@ -276,9 +276,6 @@ header {
   margin: 0;
 }
 
-.mis_gifos {
-  display: none;
-}
 .mis_gifos .mis_guifos__container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -357,6 +354,64 @@ header {
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   display: flex;
   justify-content: space-between;
+}
+.capture_container .capture_inner__container.gif_preview {
+  width: 45%;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__footer {
+  padding: 20px 20px 20px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__footer .btn {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  transition: background-color 0.3s ease;
+  padding: 8px 40px;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__footer .btn:hover {
+  background-color: #fff4fd;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__container {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__container .gif_preview__src {
+  width: 50%;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__container .gif_preview__src .previewer {
+  box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  border: 1px solid #110038;
+  display: inline-block;
+  width: 100%;
+  height: 25vh;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__container .gif_preview__btns {
+  width: 50%;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__container .gif_preview__btns .btns_content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__container .gif_preview__btns p {
+  font-weight: 700;
+  text-align: left;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__container .gif_preview__btns .btn {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+.capture_container .capture_inner__container.gif_preview .gif_preview__container .gif_preview__btns .btn:hover {
+  background-color: #fff4fd;
 }
 .capture_container .capture_inner__container .preview_container {
   width: 97%;

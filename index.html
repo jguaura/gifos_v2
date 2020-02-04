@@ -128,9 +128,65 @@
       <div class="results_container" id="results_container"></div>
     </section>
     </div>
+  <!-- capture container -->
+  <div class="container capture_container d-none" id="capture_container">
+    <div class="capture_inner__container">
+      <div class="gradient_header">
+        <span>Un Chequeo Antes de Empezar</span>
+        <img src="./assets/close.svg" alt="">
+      </div>
+      <div class="preview_container">
+        <img src="" alt="" id="preview_canvas">
+      </div>
+      <div class="capture_footer">
+        <div class="capture_timer" id="capture_timer">
+          <span>DURAZNITO</span>
+        </div>
+        <div class="capture_btns">
+          <div class="start_btns" id="capture_start">
+            <button class="btn btn_start"><img src="./assets/camera.svg" alt=""></button>
+            <button class="btn btn_start">Capturar</button>
+          </div>
+          <div class="stop_btns d-none" id="capture_stop">
+            <button class="btn btn_stop"><img src="./assets/recording.svg" alt="" srcset=""></button>
+            <button class="btn btn_stop">Detener</button>
+          </div>
+          <div class="confirm_btns d-none" id="confirm_btns__container">
+            <button class="btn btn_confirm" id="capture_repeat">Repetir Captura</button>
+            <button class="btn btn_confirm" id="upload_btn">Subir Guifo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <!-- termina capture container -->
+  <!-- empieza preview container -->
+  <div class="container capture_container d-none" id="gif_preview__container">
+    <div class="capture_inner__container gif_preview">
+      <div class="gradient_header">
+        <span>Guifo Subido Con Exito</span>
+        <img src="./assets/close.svg" alt="">
+      </div>
+      <div class="gif_preview__container">
+        <div class="gif_preview__src">
+          <img class="previewer" src="" alt="">
+        </div>
+        <div class="gif_preview__btns">
+          <div class="btns_content">
+            <p>Guifo creado con éxito</p>
+            <button class="btn">Copiar Enlace Guifo</button>
+            <button class="btn">Descargar Guifo</button>
+          </div>
+        </div>
+      </div>
+      <div class="gif_preview__footer">
+        <button class="btn">Listo</button>
+      </div>
+    </div>
+  </div> 
     <!-- Mis gifos -->
     <div class="container" >
-    <section class="section mis_gifos" id="mis_gifos">
+    <section class="section mis_gifos d-none" id="mis_gifos">
       <div class="divider">
         <span>Mis guifos</span>
       </div>
@@ -200,7 +256,7 @@
         </div>
       </div>
     </section>
-    <div class="container capture_container d-none" id="capture_container">
+    <!-- <div class="container capture_container d-none" id="capture_container">
       <div class="capture_inner__container">
         <div class="gradient_header">
           <span>Un Chequeo Antes de Empezar</span>
@@ -224,12 +280,37 @@
             </div>
             <div class="confirm_btns d-none" id="confirm_btns__container">
               <button class="btn btn_confirm" id="capture_repeat">Repetir Captura</button>
-              <button class="btn btn_confirm">Subir Guifo</button>
+              <button class="btn btn_confirm" id="upload_btn">Subir Guifo</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div>  -->
+    <!-- termina caputre container -->
+    <!-- empieza gif preview -->
+    <!-- <div class="container capture_container d-none" id="gif_preview__container">
+      <div class="capture_inner__container gif_preview">
+        <div class="gradient_header">
+          <span>Guifo Subido Con Exito</span>
+          <img src="./assets/close.svg" alt="">
+        </div>
+        <div class="gif_preview__container">
+          <div class="gif_preview__src">
+            <img class="previewer" src="" alt="">
+          </div>
+          <div class="gif_preview__btns">
+            <div class="btns_content">
+              <p>Guifo creado con éxito</p>
+              <button class="btn">Copiar Enlace Guifo</button>
+              <button class="btn">Descargar Guifo</button>
+            </div>
+          </div>
+        </div>
+        <div class="gif_preview__footer">
+          <button class="btn">Listo</button>
+        </div>
+      </div>
+    </div>  -->
   </div>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>  
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
