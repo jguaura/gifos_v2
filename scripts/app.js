@@ -39,7 +39,7 @@ const popupBtnComenzar = document.getElementById("popup_btn__comenzar");
 //? globals
 let query;
 let offset = Math.floor(Math.random() * (0 - 100)) + 100;
-console.log(lens);
+let off = 0;
 // mainContainer.innerHTML = "";
 
 let state = {
@@ -65,7 +65,7 @@ const getSuggestions = () => {
 getSuggestions();
 
 const getTrends = () => {
-  fetch(`${BASE_URL}trending?api_key=${API_KEY}&limit=12`)
+  fetch(`${BASE_URL}trending?api_key=${API_KEY}&offset=${off}&limit=12`)
     .then(response => response.json())
     .then(data => {
       trendsContainer.innerHTML = "";
@@ -73,7 +73,12 @@ const getTrends = () => {
       data.data.map(gif => {
         trendsContainer.innerHTML += trendsCardTemplate(gif);
       });
+    
+      const targets = document.querySelectorAll('.trends_card__img')
+      
+      targets.forEach(lazyLoad)
     });
+    
 };
 
 getTrends();
@@ -92,6 +97,8 @@ const search = () => {
       data.data.map(gif => {
         searchResultsContainer.innerHTML += trendsCardTemplate(gif);
       });
+      const targets = document.querySelectorAll('.trends_card__img')
+      targets.forEach(lazyLoad)
     });
 };
 
@@ -179,16 +186,45 @@ const suggestionsCardTemplate = gif =>
             </div>
           </div>
    `;
-
+ 
 const trendsCardTemplate = gif =>
   `
     <div class="trends_card">
-          <div class="trends_card__img" style="background: url(${
-            gif.images.downsized.url
-          }) center / cover no-repeat;">
+    <div class="trends_card__img" data-lazy="${gif.images.downsized.url}" style="background: url(${gif.images.fixed_width_still.url}) center / cover no-repeat;"> 
             <div class="gradient_header">
               <span>#${!gif.title ? gif.slug : gif.title}</span>
             </div>
           </div>
         </div>
    `;
+
+
+   const lazyLoad = target => {
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          const img = entry.target
+          const src = img.getAttribute('data-lazy')
+          img.addEventListener('mouseover', e => {
+            img.style.background = `url(${src}) center / cover no-repeat`
+          })
+          observer.disconnect()
+        }
+      })
+    })
+    io.observe(target)
+  }
+
+
+  // const iO = new IntersectionObserver((entries, observer) => {
+  //   entries.forEach(entry => {
+  //     if(entry.isIntersecting) {
+  //       console.log('esta')
+  //       off += 4
+  //      search()
+  //      }
+  //   })
+    
+  // })
+  
+  // iO.observe(document.getElementById('test'))

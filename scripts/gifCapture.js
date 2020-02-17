@@ -11,6 +11,13 @@ const uploadURL = `https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`
 const previewer = document.querySelector('.previewer')
 const loader = `./assets/loader.png`
 
+let storage = [1,2,3]
+
+localStorage.setItem('storage', JSON.stringify(storage))
+storage = JSON.parse(localStorage.getItem('storage'))
+console.log(storage)
+console.log('typeof', typeof storage)
+
 var image = document.querySelector("#preview_canvas");
 
 var blobHolder;
@@ -94,7 +101,8 @@ const uploader = () => {
   uploadData.append('file', blobHolder, 'asd.gif')
   fetch(`${uploadURL}`,
     { method: 'POST',
-      body: uploadData
+      body: uploadData,
+
     }
     )
     .then(response => response.json())
@@ -105,7 +113,6 @@ const uploader = () => {
      
       gifPreviewContainer.classList.remove('d-none')
       misGifosSection.classList.remove('d-none')
-      // previewer.setAttribute('src', blobHolder)
       previewer.src = URL.createObjectURL(blobHolder)
     })
   }
